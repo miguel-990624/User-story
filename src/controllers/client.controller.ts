@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getClients, getClientById, postClient, putClient, deleteClient } from "../services/client.services.ts";
+import { getClients, getClientById, postClient, putClient, deleteClient } from "../services/client.service.ts";
 
 // GET all clients
 const getClientsController = async (req: Request, res: Response) => {
