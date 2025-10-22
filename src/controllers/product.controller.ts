@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getProducts, getProductById, postProduct, putProduct, deleteProduct } from "../services/product.services.ts";
+import { getProducts, getProductById, postProduct, putProduct, deleteProduct } from "../services/product.service.ts";
 
 // GET all products
 const getProductsController = async (req: Request, res: Response) => {

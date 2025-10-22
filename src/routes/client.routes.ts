@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getClientsController, getClientByIdController, getClientByDocumentController, postClientController, putClientController, deleteClientController } from "../controllers/client.controller.ts";
+import { getClientsController, getClientByIdController, postClientController, putClientController, deleteClientController } from "../controllers/client.controller.ts";
 import { authenticate } from "../middlewares/auth.middleware.ts";
 import { authorize } from "../middlewares/authorize.middleware.ts";
 import { validate } from "../middlewares/validate.middleware.ts";
@@ -10,7 +10,6 @@ const router = Router();
 // Público
 router.get("/", authenticate, authorize(["admin","analyst"]), getClientsController);
 router.get("/:id", authenticate, authorize(["admin", "analyst"]), getClientByIdController);
-router.get( "/document/:document", authenticate, authorize(["admin", "analyst"]), getClientByDocumentController );
 // Solo admin
 router.post("/", authenticate, authorize(["admin"]), validate(ClientCreateSchema), postClientController);
 router.put("/:id", authenticate, authorize(["admin"]), validate(ClientUpdateSchema), putClientController);
