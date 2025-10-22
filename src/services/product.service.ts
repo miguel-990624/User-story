@@ -1,4 +1,4 @@
-import { Product } from "../models/products.models.ts";
+import { Product } from "../models/index.models.ts";
 import type { ProductCreation } from "../models/products.models.ts";
 
 // GET all products

@@ -1,4 +1,4 @@
-import { Client } from "../models/clients.models.ts";
+import { Client } from "../models/index.models.ts";
 import type { ClientCreation } from "../models/clients.models.ts";
 
 // GET all clients
