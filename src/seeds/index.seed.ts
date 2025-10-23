@@ -1,26 +1,24 @@
-import { sequelize } from "../config/database.ts";
-import { seedUsers } from "./users.seed.ts";
-import { seedProducts } from "./product.seed.ts";
-import { seedClients } from "./clients.seed.ts";
+import { initSequelize } from "../config/database.ts";
+import "../models/index.models.ts";
 
-async function runSeeds() {
+import { seedUsers } from "./users.seed.ts";
+import { seedClients } from "./clients.seed.ts";
+import { seedProducts } from "./product.seed.ts";
+import { seedOrders } from "./orders.seed.ts";
+
+export async function runSeeds() {
   try {
-    console.log("Base de datos sincronizada ✅");
+    await initSequelize();
 
     await seedUsers();
-    console.log("Usuarios insertados ✅");
-
-    await seedProducts();
-    console.log("Productos insertados ✅");
-
     await seedClients();
-    console.log("Clientes insertados ✅");
+    await seedProducts();
+    await seedOrders();
 
-    console.log("Seeds ejecutados con éxito 🚀");
+    console.log("🌱 Todos los seeds ejecutados correctamente");
     process.exit(0);
-    
   } catch (error) {
-    console.error("Error ejecutando seeds:", error);
+    console.error("❌ Error ejecutando seeds:", error);
     process.exit(1);
   }
 }

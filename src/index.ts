@@ -1,5 +1,6 @@
 import express  from "express";
 import { initSequelize } from "./config/database.ts";
+import "./models/index.models.ts";
 
 const app = express();
 
